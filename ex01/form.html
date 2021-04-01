@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lange="ko">
+    <head>
+        <title>맵버쉽 가입</title>
+        <meta http-equiv="Content-Type"
+        content="text/html;charset=UTF-8"/>
+    </head>
+    <body>
+        <h1>맵버쉽 가입</h1>
+        <!--서버로 데이터 전송을 위해
+            사용자 입력을 받는 입력 태그-->
+        <!--form 태그 속성
+            method 서버로 데이터 전송을 위한 전송 방식(POSTmGet(기본값))
+            action 폼 데이터를 처리할 서버 페이지의 주소-->
+        <form method="POST" action="target.html">
+            <!--입력 양식 그룹화-->
+            <fieldset>
+                <!--입력 양식 제목 -->
+                <legend>회원가입</legend>
+                <!--입력 필드의 설명 for와 id가 연결 되는것이다 for->id로-->
+                <label for="userid">아이디</label>
+                <!--타입 생략 되면 text(기본) 입력 할수 있는 상태-->
+                <input name="userid" id="userid"/><br/>
+                <label for="password">비밀번호</label>
+                <!--name은 서버 전송 속성 id속성 HTML내에서 해당 요소를 식별
+                타입이 password이면 입력 값을 숨긴다-->
+                <input name="password" id="password" type="password"/>
+                <!--입력 필드의 값을 부여할때는 value 속성 사용-->
+                <input type="hidden" name="code" value="secret_code"/>
+                <br/><label for="recom">추천인</label>
+                <!--disabled 속성이 있으면 해당 입력 상자는 사용 불가가 됨 
+                둘다 같은 결과-->
+                <input type="text" name="recom" value="홍길동" disabled/>
+                <input type="text" name="recom" value="홍길동" disabled=true/><br/>
+
+                <label>성별</label>
+                <!--같은 name을 가진 radio중에서 한개만 선택-->
+                    <input type="radio" name="gender" value="male" checked/>
+                    <input type="radio" name="gender" value="female" checked/>
+
+                <label>선호음료</label>
+                <!--String 로 전송됨-->
+                    <input type="checkbox" name="favorite" value="americnao"/>아메리카노
+                    <input type="checkbox" name="favorite" value="latte"/>라뗴
+                    <input type="checkbox" name="favorite" value="ade"/>에이드
+                    <input type="checkbox" name="favorite" value="tea"/>녹차
+
+                <label for="telecom">통신사</label>
+                    <select name="telecom" id="telecom">
+                        <!--서브 태그-->
+                        <option value="S">SKT</option>
+                        <option value="K">KT</option>
+                        <option value="L">LGT</option>
+                        <option value="E">기타</option>
+
+                    </select><br/>
+
+                    <input type="submit" value="맵버쉽 가입"/> <!--현재폼을 서버로 전송-->
+            
+                    <input type="reset" value="다시 작성"/>
+
+                </fieldset>
+
+        </form>
+
+    </body>
+</html>
