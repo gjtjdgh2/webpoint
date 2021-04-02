@@ -55,7 +55,7 @@ a:visited{/* 이미 방문한 상태*/
     color:blue;
 }
 
-body{
+/*body{
     /* 배경화면 개별 속성 방식*/
     background-image: url("../images/Landscape.jpg");
     background-repeat: no-repeat; /* no-repea 은복제 않됨*/
@@ -67,4 +67,4 @@ body{
     /*축약형*/
   /*  background:url("../images/Landscape.jpg") bottom/100% no-repeat fixed lightblue; */
 /*이미지 붙착방식 (위치) 크기 반복 배경고정 색상*/
-}
+} */

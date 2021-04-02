@@ -27,7 +27,16 @@
                 top:30px;
             }
             .container{
+                margin-top: 50px ;
                 border: 2px solid black;
+
+                /*자식의 좌표계를 absolute로 설정 하려면
+                부모의 좌표계를 relative로 설정하는 것이다*/
+                position: relative;
+                height: 100px;
+                /*자식의 영역이 부모를 벗어날 때의 처리*/
+                /*overflow: hidden; 넘어간 부분은 표시 하지 않음*/
+                overflow: scroll; /*넘어간 부분을 스크롤로 나타냄*/
             }
         </style>
     </head>
