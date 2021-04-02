@@ -8,17 +8,18 @@
     <style>
 /* 구조 선택자:형제 관계에서의 위치로 요소 선택*/
       .menu > li:first-child{/* class==menu인 요소의 자식 li 중 첫번째*/
-        background-color: lightgreen;
+        /*키워드 이용 색상 선택 */
+        background-color: rgb(0,127,0,0.4);
       }
       /* class=menu인 요소인 자식중 li중 2번째*/
       .menu > li:nth-child(2){
-        background-color:lightblue;
+        background-color:rgb(0,0,127,0.5);
       }
       .menu > li:nth-last-child(2){
-        background-color:lightpink;
+        background-color:rgb(127,50,50,0.1);
       }
       .menu > :last-child{
-        background-color:pink;
+        background-color: #ff000020;
       }
       /* class=beverage 요소의 자식 h2*/
       .beverage > h2{
@@ -33,6 +34,12 @@
       .beverage >p{
         fount-size 1.2em;
       }
+      body{
+        /*표시한 글꼴의 후보군을 나열 앞쪽 폰 부터 적용되고 없으면 뒤에쪽 후보가 적용
+        font-family: 'Times New Roman',sans-serif;
+      */
+      font-family: '맑은 고딕',돋음,sans-serif;
+    }
     </style>
   </head>
 
