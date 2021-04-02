@@ -4,7 +4,36 @@
     <title> Bit Lounge 건강음료 </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="./styles/style.css"/>
-    
+    <!--연습을 위해 page css로 진행-->
+    <style>
+/* 구조 선택자:형제 관계에서의 위치로 요소 선택*/
+      .menu > li:first-child{/* class==menu인 요소의 자식 li 중 첫번째*/
+        background-color: lightgreen;
+      }
+      /* class=menu인 요소인 자식중 li중 2번째*/
+      .menu > li:nth-child(2){
+        background-color:lightblue;
+      }
+      .menu > li:nth-last-child(2){
+        background-color:lightpink;
+      }
+      .menu > :last-child{
+        background-color:pink;
+      }
+      /* class=beverage 요소의 자식 h2*/
+      .beverage > h2{
+        /* 절대 단위 픽셀*/
+        font-size:24px; /* 브라우저의 기본 픽셀일 16이다*/
+        /* 상대 단위 %: 비율 백분율
+        24px= font-size:150% */
+
+        /*배율 단위 
+       24px= font-size:1.5em; */
+      }
+      .beverage >p{
+        fount-size 1.2em;
+      }
+    </style>
   </head>
 
   <body>
@@ -15,7 +44,7 @@
 
   <nav><!--nav 메뉴등 사이트 네비게이션 관련-->
       <!--리스트 활용 메뉴-->
-    <ul>
+    <ul class="menu">
       <!--ul: 순서 없는 리스트
           ol: 순서가 있는 리스트-->
       <li>Green</li>

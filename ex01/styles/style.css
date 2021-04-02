@@ -40,3 +40,8 @@ nav,section{
 .beverage.red{
     background-color: red;
 }
+/*가상선택자 (반응 선택자)
+    사용자의 반응에 의해 요소를 선택 단독으로 사용되지 않음*/
+a:hover{/*마우스가 요소 위에 올라갔을때*/
+    color:black;
+}
