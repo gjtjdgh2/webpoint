@@ -32,18 +32,47 @@
        24px= font-size:1.5em; */
       }
       .beverage >p{
-        fount-size 1.2em;
+        font-size: 1.2em;
       }
       body{
         /*표시한 글꼴의 후보군을 나열 앞쪽 폰 부터 적용되고 없으면 뒤에쪽 후보가 적용
         font-family: 'Times New Roman',sans-serif;
       */
       font-family: '맑은 고딕',돋음,sans-serif;
+      font-weight: normal;
     }
+
+.feature{
+  /* 선으로 요소를 꾸미는 속성 none,line-through,underline,overline등있다*/
+  text-decoration: in;
+}
+/* border속성 요소의 테두리를 꾸미는 속성*/
+.beverage{
+  /*개별 속성 적용시
+  border-width: 3px;
+  border-style: dashed;
+  border-color: yellow;  */
+  /* 일괄 적용*/
+  border:  3px dashed gray;
+}
+.beverage img{
+  /* 값이 1개이면 전방향 적용*/
+  padding: 10px;
+}
+.beverage h2{
+  /* 값이 2개이면 처음게 위 아래  두번째것이 좌 우*/
+  margin: 0 10px;
+}
+.beverage p{
+  /* 값이 4개이면 위 오른쪽 아래 왼쪽순*/
+  margin: 20px 10px 10px 10px;
+}
+
     </style>
   </head>
 
   <body>
+   
     <header><!--싸이트 전체 또는 기사의 헤더 정보-->
     <h1>건강 음료</h1>
 

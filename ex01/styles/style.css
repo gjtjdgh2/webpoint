@@ -29,10 +29,10 @@ nav,section{
     padding:10px;
 }
 .beverage.green{
-    background-color: lightgreen;
+    background-color: #00ff0020;
 }
 .beverage.blue{
-    background-color: cyan;
+    background-color: rgb(0,0,255,0.5);
 }
 .beverage.light{
     background-color: lightblue;
@@ -44,4 +44,27 @@ nav,section{
     사용자의 반응에 의해 요소를 선택 단독으로 사용되지 않음*/
 a:hover{/*마우스가 요소 위에 올라갔을때*/
     color:black;
+}
+a:active{/* 마우스 버튼을 누른상태*/
+    color:red;
+}
+a:link{/* 미방문 상태링크*/
+    color:cyan;
+}
+a:visited{/* 이미 방문한 상태*/
+    color:blue;
+}
+
+body{
+    /* 배경화면 개별 속성 방식*/
+    background-image: url("../images/Landscape.jpg");
+    background-repeat: no-repeat; /* no-repea 은복제 않됨*/
+    background-repeat: repeat-y; /*y 축방향 복사*/
+    background-attachment: fixed; /* 배경 고정*/
+    background-position: bottom;/* 배경 위치*/
+    background-size: 100%; /*배경 크기*/
+
+    /*축약형*/
+  /*  background:url("../images/Landscape.jpg") bottom/100% no-repeat fixed lightblue; */
+/*이미지 붙착방식 (위치) 크기 반복 배경고정 색상*/
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Positoin Example</title>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                /* 좌표계를 절대 좌표로 변경
+                left,top,right,bottom*/
+                position: absolute;
+            }
+            .box:first-child{
+                background-color: red;
+                left: 10px;
+                top:10px;
+            }
+            .box:nth-child(2){
+                background-color: green;
+                left: 20px;
+                top:20px;
+                z-index: 10; /* z축의 순서 조정 값이 크면 앞쪽으로 온다*/
+            }
+            .box:last-child{
+                background-color: blue;
+                left: 30px;
+                top:30px;
+            }
+            .container{
+                border: 2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!--기본적으로 HTML 좌표계는 상대 좌표-->
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </body>
+</html>
