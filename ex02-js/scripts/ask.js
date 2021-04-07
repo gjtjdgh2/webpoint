@@ -1,0 +1,1 @@
+var name =prompt("당신은 누구 입니까?");

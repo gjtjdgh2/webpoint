@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iPhones</title>
+    <style>
+        #product-info img.selected {
+            width: 225px;
+            height: 265px;
+            float: left;
+            border: 1px solid lightslategrey;
+            margin: 5px;
+        }
+
+        #product-list li {
+            list-style-type: none;
+            border: 1px solid lightslategrey;
+            margin: 5px;
+            float: left;
+        }
+
+        #product-list li img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="product-info">
+        <img id="main-image" src="images/iphone-xs.jpeg" class="selected" title="iPhones XS"> 
+        <!--inline 방식으로 스크립트 실행-->
+     <!-- <img id="main-image" src="images/iphone-xs.jpeg" -->
+      <class="selected" title="iPhones XS" onclick="alert(this.title);">
+        <h2>iPhone Xs</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        <h3>Products</h3>
+        <ul id="product-list">
+            <li><img class="sub-image" src="images/iphone-xs.jpeg" 
+                title="iPhone XS" data-color="red"></li>
+            <li><img class="sub-image" 
+                src="images/iphone-xr.jpeg" title="iPhone XR" data-color="green"></li>
+            <li><img class="sub-image" 
+                src="images/iphone8.jpeg" title="iPhone 8" data-color="blue"></li>
+            <li><img class="sub-image" 
+                src="images/ipad-mini.jpeg" title="iPad Mini" data-color="purple"></li>
+        </ul>
+        <input type="text" id="keyword" /><button id="btn-search">검색</button>
+    </div>
+</body>
+<script>
+    function testAttribute(){
+        //id가 main-image인 요소를 선택해서 속성 확인
+        var obj = document.getElementById("main-image");
+        console.log("#main-image:",obj);
+        //석택한 요소의 모든 속성 반환
+        console.log(obj.getAttributeNames());
+        //속성 조회:title 속성
+        console.log("title 속성:",obj.getAttribute("title"));
+        //하단의 products 이미지들  선택하여 title 확인
+        var subs =document.getElementsByClassName("sub-image");
+        console.log("#sub-image:",subs);
+        //HTMLCollection -> loop필요
+        for(var i=0;i<subs.length;i++){
+            var sub =subs[i];
+            console.log("sub:",sub.getAttribute("title"));
+        }
+        
+    }
+   // testAttribute();
+   //이벤트 리스너 부착 방법2.
+   document.getElementById("main-image")
+    .onclick=function(event){
+        //event -> 발생하 이벤트의 정보
+        console.log(event);
+        console.log("이벤트명:",event._proto_);
+        console.log("이벤트 발생 객체:",event.target);
+        //중요 event.target으로 이벤트를 발생시킨 객체를 참조 할수있다
+    };
+    //input#keyword을 내용을 입력하면 
+    //변경된내용이 #bin-search에 출력 되게 해보자
+    /*document.getElementById("keyword").onkeydown= function(event){
+        //이벤트를 발생시킨 객체 확인
+        console.log(event.target);
+        console.log("눌린 키:",event.keyCode);
+        var btm=document.querySelector("#btn-search");
+        btm.innerText = event.target.value+" :검색 ";
+    };*/
+
+    //리스너 부착 방법3 addEventListener
+    //가장 추천
+    window.addEventListener("load",function(event){
+        //DOM 구성이 완료 되지 않은 상태에서 요소 선택하고자 하면
+        //오작동  load 이벤트를 이용 DOM이 완전 구성이
+        //끝난 상태에서 페이지를 초기화 해야한다
+        document.getElementById("keyword").addEventListener("keyup", function(event){
+        //이벤트를 발생시킨 객체 확인
+        console.log(event.target);
+        console.log("눌린 키:",event.keyCode);
+        var btm=document.querySelector("#btn-search");
+        btm.innerText = event.target.value + " :검색 ";
+    });
+
+    var products=document.getElementsByClassName("sub-image");
+    //console.log(products);  -> loop
+    for(var i=0;i<products.length;i++){
+        //개발 상품
+        var  product =products[i];
+        //console.log(product);
+        product.addEventListener("click",function(event){
+            //개발 상품의 src-> img#main-image의 src속송으로
+            //  title-> img#main-image의 title 속성으로
+            var mainimage = document.getElementById("main-image");
+            //이벤트를 발생시킨 객체 확인
+            var obj = event.target; //.sub-image
+            mainimage.setAttribute("src",obj.getAttribute("src"));
+            mainimage.setAttribute("title",obj.getAttribute("title"));
+
+            var title =document.querySelector("#product-info h2");
+            title.innerText = obj.getAttribute("title");
+
+            //요소의 스타일에 접근 -> style 속성 이용
+            //주의사항
+            //css style의 명명 방식 snake-case: 예) background-color
+            //js로 부여할떄는 backgroundcolor
+            title.style.color=obj.getAttribute("data-color");
+        });
+    }
+});
+
+
+</script>
+</html>
