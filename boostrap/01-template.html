@@ -31,6 +31,7 @@
       <div class="col">
           <h3>Column 3</h3>
       </div>
+
   </div>
 
   <div class="row">
@@ -58,7 +59,26 @@
           <p>남은 격자 중에서 균등 분할</p>
       </div>
   </div>
+
+  <div class="row">
+    <div class="col d-none d-sm-block"> 
+      <!-- 기본적으로는 표시하지않고 sm디바이스일떄만 표시해라-->
+      <h3>not for smartphone</h3>
+      <p>본 컬럼은 스마트폰에서는 보이지 않습니다</p>
+    </div>
 </div>
+</div>
+
+<!--container-fluid 클래스: 컨테이너 크기를 100%-->
+<div class="container-fluid">
+  <h2>container-fluid 적용</h2>
+  <div class="row">
+    <div class="col">column 1</div>
+    <div class="col">column 2</div>
+  </div>
+</div>
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
