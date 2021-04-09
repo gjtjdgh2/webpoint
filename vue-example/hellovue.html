@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue.js Example</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>Hello Vue</h1>
+
+        <div id="app"><!-- view 영역-->
+            {{message}}
+
+        </div>
+        <script>
+            //vanilla js
+         //   document.getElementById("app").innerText="Hello vanill js"
+        </script>
+
+        <!-- Vue 인스턴스 생성  MVM 패턴에서 Modek 과 view를 연결하는 vm 역활 수행-->
+        <script>
+            var app = new Vue({
+                el:"#app",//view로 사용할 DOM(htmlElement) ->id 셀렉트
+                data:{ //model 데이터
+                    message:"Hello,vue.js"
+                },
+                // 실행의 단계마다 이벤트가 발생 -> 각 단꼐별로 hook함수가 있다
+                beforeCreate:function(){//  객체가 생성되지 않은 상태
+                    //아직 model view에 접근할수 없는 상태
+                    console.log("beforecreate");
+                    console.log("Mobel:",this.message);
+                },
+                created: function(){//  ViewModel이 생성되었으나 View가 연결되지 않은 상태
+                    //model에 접근할수 있는상태
+                    //만약 API 호출해야 한다면 가장 적합한 LifeCycle 단계
+                    console.log("created");
+                    console.log("medel:",this.message);
+                    //view 연결 안된 상태 -> DOM에 접근 할수 없다
+                    console.log("view:",this.$el)
+                },
+                mounted: function(){//  View가 연결되어서 DOM에 접근할 수 있는 상태
+                    console.log("mounted");
+                    console.log("view:",this.$el)
+                    //el요소가 viewmodel에 바인딩 됨
+                    //이후에 DOM 요소에 접근할수있다
+                    console.log("el:",this.$el.innerText);
+                },
+                updated: function(){
+                    //내부 모델이 변경 되었을때 발생
+                    console.log("updated:",this.message);
+                    //viewmodel이 virtual COM을 다시 구성 ->실제 DOM을 재구축
+                }
+            });
+        </script>
+
+    </body>
+</html>
